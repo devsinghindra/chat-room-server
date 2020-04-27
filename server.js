@@ -15,6 +15,7 @@ const io = socketio(server);
 io.on("connection", function (socket) {
   // console.log("We have a new connection");
   socket.on("join", function ({ name, room }, callback) {
+    console.log(name, room);
     const { error, user } = addUser(socket.id, name, room);
     if (error) {
       return callback(error);
@@ -42,7 +43,15 @@ io.on("connection", function (socket) {
   });
 
   socket.on("disconnect", function () {
-    console.log("User has left!");
+    // console.log("User has left!");
+    const user = removeUser(socket.id);
+
+    if (user) {
+      io.to(user.room).emit("message", {
+        user: "admin",
+        text: `${user.name} has left.`,
+      });
+    }
   });
 });
 
