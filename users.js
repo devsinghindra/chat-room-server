@@ -5,7 +5,7 @@ function addUser({ id, name, room }) {
   room = room.trim().toLowerCase();
 
   if (name === "") {
-    return { error: "Empty room field" };
+    return { error: "Empty name field" };
   }
 
   if (room === "") {
