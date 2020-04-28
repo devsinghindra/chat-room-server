@@ -1,6 +1,6 @@
 const users = [];
 
-function addUser(id, name, room) {
+function addUser({ id, name, room }) {
   name = name.trim().toLowerCase();
   room = room.trim().toLowerCase();
 
