@@ -4,6 +4,13 @@ function addUser({ id, name, room }) {
   name = name.trim().toLowerCase();
   room = room.trim().toLowerCase();
 
+  if (name === "") {
+    return { error: "Empty room field" };
+  }
+
+  if (room === "") {
+    return { error: "Empty room field" };
+  }
   const existingUser = users.find(
     (user) => user.name === name && user.room === room
   );
