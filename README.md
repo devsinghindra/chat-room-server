@@ -14,3 +14,7 @@ It handles all the backend stuffs like:
 ## Requirements
 
 For development, you will need Node.js and express installed.
+
+## Heroku
+
+Deployed on Heroku [here](https://chat-on-web-app.herokuapp.com/).
